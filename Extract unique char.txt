@@ -1,0 +1,19 @@
+def uniqueChar(s): 
+    unique=''
+    for i in range(len(s)):
+        if s[i] not in unique:
+            unique+=s[i] 
+    return unique 
+
+            
+    
+    pass
+
+
+
+
+
+
+# Main 
+s=input() 
+print(uniqueChar(s))
