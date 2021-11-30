@@ -1,0 +1,40 @@
+from sys import stdin
+from math import factorial
+
+def nc2(n):
+    ans=0
+    if n!=1:
+        ans = factorial(n) / (factorial(2)*factorial(n-2))
+    return int(ans)
+def printPairDiffK(l,k):
+    m={}
+    count = 0
+    for num in l:
+        if num in m:
+            m[num] += 1
+        else:
+            m[num] = 1
+
+    if k!=0:
+        for i in m:
+            if i+k in m:
+                count=count+(m[i]*m[i+k])
+        return count
+    else:
+        for i in m:
+            if m[i]%2==0:
+                a=nc2(m[i])
+                count+=a
+            else:
+                count+=m[i]
+        return count
+    
+    #############################
+    # PLEASE ADD YOUR CODE HERE #
+    #############################
+    
+# Main
+n=int(input())
+l=list(int(i) for i in input().strip().split(' '))
+k=int(input())
+print(printPairDiffK(l, k))
